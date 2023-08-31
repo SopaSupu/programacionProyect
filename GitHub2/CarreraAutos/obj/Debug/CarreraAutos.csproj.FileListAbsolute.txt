@@ -1,0 +1,6 @@
+C:\Users\frida.ortegara\Documents\GitHub\ProyectosProgra\ClasesIniciales_002\CarreraAutos\bin\Debug\CarreraAutos.exe.config
+C:\Users\frida.ortegara\Documents\GitHub\ProyectosProgra\ClasesIniciales_002\CarreraAutos\bin\Debug\CarreraAutos.exe
+C:\Users\frida.ortegara\Documents\GitHub\ProyectosProgra\ClasesIniciales_002\CarreraAutos\bin\Debug\CarreraAutos.pdb
+C:\Users\frida.ortegara\Documents\GitHub\ProyectosProgra\ClasesIniciales_002\CarreraAutos\obj\Debug\CarreraAutos.exe
+C:\Users\frida.ortegara\Documents\GitHub\ProyectosProgra\ClasesIniciales_002\CarreraAutos\obj\Debug\CarreraAutos.pdb
+C:\Users\frida.ortegara\Documents\GitHub\ProyectosProgra\ClasesIniciales_002\CarreraAutos\obj\Debug\CarreraAutos.csprojResolveAssemblyReference.cache
