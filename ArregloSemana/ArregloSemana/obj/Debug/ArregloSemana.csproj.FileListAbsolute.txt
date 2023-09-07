@@ -1,0 +1,7 @@
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\ArregloSemana\obj\Debug\ArregloSemana.csproj.AssemblyReference.cache
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\ArregloSemana\obj\Debug\ArregloSemana.csproj.CoreCompileInputs.cache
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\ArregloSemana\bin\Debug\ArregloSemana.exe.config
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\ArregloSemana\bin\Debug\ArregloSemana.exe
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\ArregloSemana\bin\Debug\ArregloSemana.pdb
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\ArregloSemana\obj\Debug\ArregloSemana.exe
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\ArregloSemana\obj\Debug\ArregloSemana.pdb
