@@ -10,6 +10,13 @@ namespace GeneradorDeNombres
     {
         static void Main(string[] args)
         {
+            GeneradorDeTiposDeGatos generador =
+                new GeneradorDeTiposDeGatos();
+
+            generador.generar(11,2);
+            Console.Read();
+
+
         }
     }
 }

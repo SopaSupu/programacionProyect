@@ -1,0 +1,7 @@
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\GeneradorDeNombres\obj\Debug\GeneradorDeNombres.csproj.AssemblyReference.cache
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\GeneradorDeNombres\obj\Debug\GeneradorDeNombres.csproj.CoreCompileInputs.cache
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\GeneradorDeNombres\bin\Debug\GeneradorDeNombres.exe.config
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\GeneradorDeNombres\bin\Debug\GeneradorDeNombres.exe
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\GeneradorDeNombres\bin\Debug\GeneradorDeNombres.pdb
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\GeneradorDeNombres\obj\Debug\GeneradorDeNombres.exe
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\GeneradorDeNombres\obj\Debug\GeneradorDeNombres.pdb
