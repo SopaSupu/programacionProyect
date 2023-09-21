@@ -8,6 +8,8 @@ public class ControladorJugador : MonoBehaviour
     public float fuerzaSalto = 20;
     private Rigidbody2D miCuerpo;
     private Animator miAnimador;
+    public bool enPiso;//grounded
+    public int dobleSalto = 2;
 
     void Start()
     {
@@ -21,6 +23,13 @@ public class ControladorJugador : MonoBehaviour
     
     void Update()
     {
+        if (enPiso == true)
+        {
+            dobleSalto = 2;
+        }
+
+        comprobarPiso();
+
         float velActualVert = miCuerpo.velocity.y;
         //leo si el jugador está presionando un eje
         //horizontal en las flechas
@@ -47,11 +56,37 @@ public class ControladorJugador : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump"))
         {
-            print("Se presionó salto");
-            miCuerpo.AddForce(
-                new Vector3(0, fuerzaSalto, 0),
-                ForceMode2D.Impulse);
+            if (enPiso == true)
+            {
+                print("Se presionó salto");
+                miCuerpo.AddForce(
+                    new Vector3(0, fuerzaSalto, 0),
+                    ForceMode2D.Impulse);
+
+                dobleSalto = dobleSalto - 1;
+            }
+            else if(enPiso = false && dobleSalto > 0)
+            {
+                print("Se presionó salto");
+                miCuerpo.AddForce(
+                    new Vector3(0, fuerzaSalto, 0),
+                    ForceMode2D.Impulse);
+
+                dobleSalto = dobleSalto - 1;
+            }
+
         }
         miAnimador.SetFloat("VEL_VERT", velActualVert);
+
+
     }
+
+    void comprobarPiso()
+    {
+        //lanzo un raYO DE DETECCIóN
+        //de colisiones hacia abajo desde la posición del objeto (cavernicola)
+        enPiso = Physics2D.Raycast(
+            transform.position, Vector2.down, 0.1f);//vector hacia abajo y 0.1 distancia
+    }
+      
 }
