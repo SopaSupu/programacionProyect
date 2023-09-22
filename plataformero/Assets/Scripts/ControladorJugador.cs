@@ -28,13 +28,16 @@ public class ControladorJugador : MonoBehaviour
             dobleSalto = 2;
         }
 
+
+
+        miAnimador.SetBool("EnPiso", enPiso);
         comprobarPiso();
 
         float velActualVert = miCuerpo.velocity.y;
         //leo si el jugador está presionando un eje
         //horizontal en las flechas
         float movHoriz = Input.GetAxis("Horizontal");
-        if (movHoriz > 0) //a la derecha
+        if (movHoriz > 0)//a la derecha
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             //el 3 es hardcode TT(?
@@ -49,7 +52,7 @@ public class ControladorJugador : MonoBehaviour
                 -velocidadCaminar, velActualVert, 0);
             miAnimador.SetBool("Caminando", true);
         }
-       else //quieto
+            else //quieto
         {
             miCuerpo.velocity = new Vector3(0, velActualVert, 0);
             miAnimador.SetBool("Caminando", false);
