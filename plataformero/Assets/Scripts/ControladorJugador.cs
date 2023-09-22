@@ -63,9 +63,9 @@ public class ControladorJugador : MonoBehaviour
                     new Vector3(0, fuerzaSalto, 0),
                     ForceMode2D.Impulse);
 
-                dobleSalto = dobleSalto - 1;
+                dobleSalto = dobleSalto -1;
             }
-            else if(enPiso = false && dobleSalto > 0)
+            else if(enPiso == false && dobleSalto > 0)
             {
                 print("Se presionó salto");
                 miCuerpo.AddForce(
