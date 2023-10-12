@@ -1,0 +1,7 @@
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\Practica_Constructores\obj\Debug\Practica_Constructores.csproj.AssemblyReference.cache
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\Practica_Constructores\obj\Debug\Practica_Constructores.csproj.CoreCompileInputs.cache
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\Practica_Constructores\bin\Debug\Practica_Constructores.exe.config
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\Practica_Constructores\bin\Debug\Practica_Constructores.exe
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\Practica_Constructores\bin\Debug\Practica_Constructores.pdb
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\Practica_Constructores\obj\Debug\Practica_Constructores.exe
+C:\Users\frida.ortegara\Documents\GitHub\programacionProyect\ArregloSemana\Practica_Constructores\obj\Debug\Practica_Constructores.pdb
