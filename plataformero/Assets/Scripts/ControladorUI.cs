@@ -9,7 +9,7 @@ public class ControladorUI : MonoBehaviour
     public Text etiquetaHPHeroe;
     public Image barraHPHeroe;
     public Text etiquetaScore;
-    public Image corazon;
+    public Image equis;
     public Text etiquetaVidas;
 
 
@@ -26,4 +26,5 @@ public class ControladorUI : MonoBehaviour
         etiquetaScore.text = "Score: " + heroe.score.ToString();
         etiquetaVidas.text = heroe.vidas.ToString();
     }
+    
 }

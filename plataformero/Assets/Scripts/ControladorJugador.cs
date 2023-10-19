@@ -77,8 +77,11 @@ public class ControladorJugador : MonoBehaviour
 
                 dobleSalto = dobleSalto - 1;
             }
+         
 
         }
+       
+
         miAnimador.SetFloat("VEL_VERT", velActualVert);
 
 
