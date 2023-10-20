@@ -8,7 +8,7 @@ public class Personaje : MonoBehaviour
     public int hpMax = 100;
     public int score = 0;
     public int vidas = 3;
-    private Animator miAnimador;
+    Animator miAnimador;
 
     void Start()
     {
@@ -21,9 +21,14 @@ public class Personaje : MonoBehaviour
         //resto los puntos al hp actual
         hp = hp - puntos;
         miAnimador.SetTrigger("Dañar");
-    }
-    
-    
 
-        
-}
+    }
+    public void perderVida(int puntosVida, GameObject atacante)
+    {
+        print(name + "Muere por " + atacante.name);
+        vidas = vidas - puntosVida;
+        hp = 0;
+    }
+
+
+    }
