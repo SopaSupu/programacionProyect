@@ -10,6 +10,7 @@ public class ControladorJugador : MonoBehaviour
     private Animator miAnimador;
     public bool enPiso;//grounded
     public int dobleSalto = 2;
+    private ReproductorSonidos misSonidos;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class ControladorJugador : MonoBehaviour
 
         miCuerpo = GetComponent<Rigidbody2D>();
         miAnimador = GetComponent<Animator>();
+        misSonidos = GetComponent<ReproductorSonidos>();
     }
 
     
@@ -66,6 +68,8 @@ public class ControladorJugador : MonoBehaviour
                     new Vector3(0, fuerzaSalto, 0),
                     ForceMode2D.Impulse);
 
+                misSonidos.reproducir("Saltar");
+
                 dobleSalto = dobleSalto -1;
             }
             else if(enPiso == false && dobleSalto > 0)
@@ -74,6 +78,7 @@ public class ControladorJugador : MonoBehaviour
                 miCuerpo.AddForce(
                     new Vector3(0, fuerzaSalto, 0),
                     ForceMode2D.Impulse);
+               
 
                 dobleSalto = dobleSalto - 1;
             }
