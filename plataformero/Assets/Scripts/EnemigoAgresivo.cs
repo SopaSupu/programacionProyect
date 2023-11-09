@@ -8,6 +8,7 @@ public class EnemigoAgresivo : MonoBehaviour
     public float VelocidadCaminar = 3f;
     public float distanciaAgro = 5;
     public float agroMenor = 3;
+    public GameObject efectoAtacar;
     private GameObject heroe;
     private Animator miAnimador;
     private Rigidbody2D miCuerpo;
@@ -35,14 +36,14 @@ public class EnemigoAgresivo : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 miCuerpo.velocity = new Vector3(VelocidadCaminar, velActualVert, 0);
                 miAnimador.SetBool("Atacar", false);
-                miAnimador.SetBool("Caminando", true);
+                miAnimador.SetBool("Correr", true);
             }
             else
             {//está a la izquierda
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 miCuerpo.velocity = new Vector3(
                 -VelocidadCaminar, velActualVert, 0);
-                miAnimador.SetBool("Caminando", true);
+                miAnimador.SetBool("Correr", true);
                 miAnimador.SetBool("Atacar", false);
             }
         }
@@ -54,7 +55,7 @@ public class EnemigoAgresivo : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 miCuerpo.velocity = new Vector3(0, 0, 0);
                 miAnimador.SetBool("Atacar", true);
-                miAnimador.SetBool("Caminando", false);
+                miAnimador.SetBool("Correr", false);
             }
 
         }
@@ -76,6 +77,7 @@ public class EnemigoAgresivo : MonoBehaviour
             Personaje elPerso = otro.GetComponent<Personaje>();
             //aplico el daño al otro invocando el método hacer daño
             elPerso.hacerDanio(Danio, this.gameObject);
+            GameObject Atacar = Instantiate(efectoAtacar, elPerso.transform);
         }
     }
 }

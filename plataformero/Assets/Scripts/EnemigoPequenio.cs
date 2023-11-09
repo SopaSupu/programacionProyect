@@ -9,6 +9,7 @@ public class EnemigoPequenio : MonoBehaviour
     public float velocidadCaminar = 3;
     private Rigidbody2D miCuerpo;
     private Animator miAnimador;
+    public GameObject efectoAtacar;
 
 
     void Start()
@@ -44,7 +45,7 @@ public class EnemigoPequenio : MonoBehaviour
         }
         else
         {//el heroe està fuera de la zona de agro
-
+            miAnimador.SetBool("Corriendo", false);
         }
     }
 
@@ -60,6 +61,7 @@ public class EnemigoPequenio : MonoBehaviour
             Personaje elPerso = otro.GetComponent<Personaje>();
             //aplico el daño al otro invocando el método hacer daño
             elPerso.hacerDanio(puntosDanio, this.gameObject);
+            GameObject Atacar = Instantiate(efectoAtacar, elPerso.transform);
         }
     }
 }
