@@ -83,11 +83,14 @@ public class ControladorJugador : MonoBehaviour
                 dobleSalto = dobleSalto - 1;
             }
          
-
+           
         }
-       
+        if (Input.GetButtonDown("Fire1"))
+        {//atacar
+            miAnimador.SetTrigger("Atacar");
+        }
 
-        miAnimador.SetFloat("VEL_VERT", velActualVert);
+            miAnimador.SetFloat("VEL_VERT", velActualVert);
 
 
     }
