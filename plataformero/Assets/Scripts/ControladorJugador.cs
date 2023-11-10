@@ -12,6 +12,7 @@ public class ControladorJugador : MonoBehaviour
     public int dobleSalto = 2;
     private ReproductorSonidos misSonidos;
     public int danioArma = 3;
+    private Personaje miPersonaje;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class ControladorJugador : MonoBehaviour
         miCuerpo = GetComponent<Rigidbody2D>();
         miAnimador = GetComponent<Animator>();
         misSonidos = GetComponent<ReproductorSonidos>();
+        miPersonaje = GetComponent<Personaje>();
     }
 
     
@@ -40,7 +42,7 @@ public class ControladorJugador : MonoBehaviour
         //leo si el jugador está presionando un eje
         //horizontal en las flechas
         float movHoriz = Input.GetAxis("Horizontal");
-        if (movHoriz > 0)//a la derecha
+        if (movHoriz > 0 && !miPersonaje.aturdido && !miPersonaje.muerto)//a la derecha Y el personaje no(!) està aturdido...
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             //el 3 es hardcode TT(?
@@ -48,7 +50,7 @@ public class ControladorJugador : MonoBehaviour
             miCuerpo.velocity = new Vector3(velocidadCaminar, velActualVert, 0);
             miAnimador.SetBool("Caminando", true);
         }
-        else if (movHoriz < 0)//a la izquierda
+        else if (movHoriz < 0 && !miPersonaje.aturdido && !miPersonaje.muerto)//a la izquierda
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
             miCuerpo.velocity = new Vector3(
@@ -60,7 +62,7 @@ public class ControladorJugador : MonoBehaviour
             miCuerpo.velocity = new Vector3(0, velActualVert, 0);
             miAnimador.SetBool("Caminando", false);
         }
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !miPersonaje.aturdido && !miPersonaje.muerto)
         {
             if (enPiso == true)
             {
@@ -86,12 +88,15 @@ public class ControladorJugador : MonoBehaviour
          
            
         }
-        if (Input.GetButtonDown("Fire1"))
+
+        if (Input.GetButtonDown("Fire1") && !miPersonaje.aturdido && !miPersonaje.muerto)
         {//atacar
             miAnimador.SetTrigger("Atacar");
         }
 
             miAnimador.SetFloat("VEL_VERT", velActualVert);
+
+        
 
 
     }
