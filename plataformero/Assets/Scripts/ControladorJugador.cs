@@ -11,6 +11,7 @@ public class ControladorJugador : MonoBehaviour
     public bool enPiso;//grounded
     public int dobleSalto = 2;
     private ReproductorSonidos misSonidos;
+    public int danioArma = 3;
 
     void Start()
     {
@@ -102,5 +103,17 @@ public class ControladorJugador : MonoBehaviour
         enPiso = Physics2D.Raycast(
             transform.position, Vector2.down, 0.1f);//vector hacia abajo y 0.1 distancia
     }
-      
-}
+    private void OnTriggerEnter2D(Collider2D trigger)
+    {
+        print(name + "hizo colision con" + trigger.gameObject.name);
+        GameObject otro = trigger.gameObject;
+        if (otro.tag == "Enemigo")
+        {
+            //Accede al componente de tipo Personaje del objeto con el que choquè
+            Personaje elPerso = otro.GetComponent<Personaje>();
+            //Aplico el daño al otro invocando el metodo hacer daño
+            elPerso.hacerDanio(danioArma, this.gameObject);
+        }
+    }
+
+    }
