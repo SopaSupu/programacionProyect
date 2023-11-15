@@ -38,13 +38,13 @@ public class Personaje : MonoBehaviour
         //programo que se ejecute el método desaturdir dentro de 1 segundo
         Invoke("desaturdir", 1);
 
-        if (hp < 0)
+        if (hp < 0 && vidas > 0)
         {
             hp = hpMax;
             vidas--;
         }
 
-        if (vidas == 0)
+        if (vidas <= 0)
         {
             muerto = true;
             hp = 0;
