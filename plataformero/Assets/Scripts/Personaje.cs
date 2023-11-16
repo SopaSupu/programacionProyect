@@ -1,24 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.SceneManagement;
 
 public class Personaje : MonoBehaviour
 {
     public int hp = 60;
     public int hpMax = 100;
     public int score = 0;
-    public int vidas = 1;
+    public static int vidas = 1;
     public bool aturdido = false;
     public bool muerto = false;
     Animator miAnimador;
     public GameObject efectoSangrePrefab;
     private ReproductorSonidos misSonidos;
+    private Personaje miPersonaje;
     
 
     void Start()
     {
         miAnimador = GetComponent<Animator>();
         misSonidos = GetComponent<ReproductorSonidos>();
+        miPersonaje = GetComponent <Personaje>();
     }
 
     public void hacerDanio(int puntos, GameObject atacante)
@@ -40,19 +44,24 @@ public class Personaje : MonoBehaviour
 
         if (hp < 0 && vidas > 0)
         {
-            hp = hpMax;
             vidas--;
+            muerto = true;
         }
 
-        if (vidas <= 0)
+        if (vidas <= 0 && hp <=0)
         {
             muerto = true;
             hp = 0;
             miAnimador.SetTrigger("Morir");
 
         }
+        if (miPersonaje.tag == "Player" && hp <= 0 && vidas > 0)
+        {
+            Personaje elPerso = miPersonaje.GetComponent<Personaje>();
+            elPerso.morirPersonaje(this.gameObject);
+        }
 
-     
+
     }
 
     private void desaturdir()
@@ -77,6 +86,10 @@ public class Personaje : MonoBehaviour
 
         }
     }
-
-
+    private void morirPersonaje(GameObject morido)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+
+}

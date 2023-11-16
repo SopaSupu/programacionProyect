@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControladorJugador : MonoBehaviour
 {
@@ -86,7 +87,11 @@ public class ControladorJugador : MonoBehaviour
                 dobleSalto = dobleSalto - 1;
             }
          
-           
+            if (miPersonaje.hp <= 0)
+            {
+                Invoke("morirPersonaje", 0.5f);
+                print("aaaaaaaaaa");
+            }
         }
 
         if (Input.GetButtonDown("Fire1") && !miPersonaje.aturdido && !miPersonaje.muerto)
@@ -100,6 +105,8 @@ public class ControladorJugador : MonoBehaviour
 
 
     }
+
+
 
     void comprobarPiso()
     {

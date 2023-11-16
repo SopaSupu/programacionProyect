@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ControladorUI : MonoBehaviour
@@ -11,7 +12,7 @@ public class ControladorUI : MonoBehaviour
     public Text etiquetaScore;
     public Image equis;
     public Text etiquetaVidas;
-
+    public GameObject gameOver;
 
 
     // Update is called once per frame
@@ -24,7 +25,11 @@ public class ControladorUI : MonoBehaviour
             heroe.hp / (float)heroe.hpMax;
         barraHPHeroe.fillAmount = porcentajeHP;
         etiquetaScore.text = "Score: " + heroe.score.ToString();
-        etiquetaVidas.text = heroe.vidas.ToString();
+        etiquetaVidas.text = Personaje.vidas.ToString();
+        if (Personaje.vidas <= 0)
+        {
+            gameOver.SetActive(true);
+        }
     }
     
 }
