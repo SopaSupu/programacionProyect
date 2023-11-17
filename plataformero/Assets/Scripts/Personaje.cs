@@ -88,7 +88,9 @@ public class Personaje : MonoBehaviour
     }
     private void morirPersonaje(GameObject morido)
     {
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
 
