@@ -23,7 +23,7 @@ public class Personaje : MonoBehaviour
         miAnimador = GetComponent<Animator>();
         misSonidos = GetComponent<ReproductorSonidos>();
         miPersonaje = GetComponent <Personaje>();
-        Invoke("morirPersonaje", 1f);
+        
     }
 
     public void hacerDanio(int puntos, GameObject atacante)
@@ -43,25 +43,21 @@ public class Personaje : MonoBehaviour
         //programo que se ejecute el método desaturdir dentro de 1 segundo
         Invoke("desaturdir", 1);
 
-        if (hp < 0 && Personaje.vidas > 0)
-        {
-            
-            muerto = true;
-            miPersonaje.bajarVida();
-        }
+        
 
-        if (Personaje.vidas <= 0 && hp <=0)
+        if (hp <=0)
         {
             muerto = true;
-            hp = 0;
+            //hp = 0;
             miAnimador.SetTrigger("Morir");
-
+            Personaje.vidas--;
+            Invoke("morirPersonaje", 4);
 
         }
         if (miPersonaje.tag == "Player" && hp <= 0 && Personaje.vidas > 0)
         {
             Personaje elPerso = miPersonaje.GetComponent<Personaje>();
-            elPerso.morirPersonaje(this.gameObject);
+            //elPerso.morirPersonaje(this.gameObject);
         }
 
 
@@ -95,14 +91,18 @@ public class Personaje : MonoBehaviour
     {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
+        Invoke("morirPersonaje", 4);
+
     }
 
-    public void bajarVida()
+    public void bajarVida(int puntosVida, GameObject atacante)
     {
         if (hp <= 0)
         {
+            print(name + "Muere por " + atacante.name);
             Personaje.vidas = Personaje.vidas - Personaje.vidas;
+            misSonidos.reproducir("Morir");
+            muerto = true;
         }
     }
 }
