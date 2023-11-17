@@ -9,7 +9,8 @@ public class Personaje : MonoBehaviour
     public int hp = 60;
     public int hpMax = 100;
     public int score = 0;
-    public static int vidas = 1;
+    public static int vidas = 2;
+    public int vidasMax = 3;
     public bool aturdido = false;
     public bool muerto = false;
     Animator miAnimador;
@@ -44,8 +45,9 @@ public class Personaje : MonoBehaviour
 
         if (hp < 0 && vidas > 0)
         {
-            vidas--;
+            ;
             muerto = true;
+            miPersonaje.bajarVida();
         }
 
         if (vidas <= 0 && hp <=0)
@@ -53,6 +55,7 @@ public class Personaje : MonoBehaviour
             muerto = true;
             hp = 0;
             miAnimador.SetTrigger("Morir");
+
 
         }
         if (miPersonaje.tag == "Player" && hp <= 0 && vidas > 0)
@@ -79,8 +82,7 @@ public class Personaje : MonoBehaviour
         if (hp < 0)
         {
             print(name + "Muere por " + atacante.name);
-            vidas = vidas - puntosVida;
-            hp = 0;
+            vidasMax = vidas - 1;
             misSonidos.reproducir("Morir");
             muerto = true;
 
@@ -90,6 +92,11 @@ public class Personaje : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-
+    public void bajarVida()
+    {
+        if (hp <= 0)
+        {
+            Personaje.vidas = Personaje.vidas - 1;
+        }
+    }
 }
