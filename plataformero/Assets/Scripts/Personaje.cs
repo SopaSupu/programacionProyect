@@ -9,8 +9,7 @@ public class Personaje : MonoBehaviour
     public int hp = 60;
     public int hpMax = 100;
     public int score = 0;
-    public static int vidas = 2;
-    public int vidasMax = 3;
+    public static int vidas = 3;
     public bool aturdido = false;
     public bool muerto = false;
     Animator miAnimador;
@@ -24,6 +23,7 @@ public class Personaje : MonoBehaviour
         miAnimador = GetComponent<Animator>();
         misSonidos = GetComponent<ReproductorSonidos>();
         miPersonaje = GetComponent <Personaje>();
+        Invoke("morirPersonaje", 1f);
     }
 
     public void hacerDanio(int puntos, GameObject atacante)
@@ -43,14 +43,14 @@ public class Personaje : MonoBehaviour
         //programo que se ejecute el método desaturdir dentro de 1 segundo
         Invoke("desaturdir", 1);
 
-        if (hp < 0 && vidas > 0)
+        if (hp < 0 && Personaje.vidas > 0)
         {
-            ;
+            
             muerto = true;
             miPersonaje.bajarVida();
         }
 
-        if (vidas <= 0 && hp <=0)
+        if (Personaje.vidas <= 0 && hp <=0)
         {
             muerto = true;
             hp = 0;
@@ -58,7 +58,7 @@ public class Personaje : MonoBehaviour
 
 
         }
-        if (miPersonaje.tag == "Player" && hp <= 0 && vidas > 0)
+        if (miPersonaje.tag == "Player" && hp <= 0 && Personaje.vidas > 0)
         {
             Personaje elPerso = miPersonaje.GetComponent<Personaje>();
             elPerso.morirPersonaje(this.gameObject);
@@ -79,24 +79,28 @@ public class Personaje : MonoBehaviour
     
     public void perderVida(int puntosVida, GameObject atacante)
     {
-        if (hp < 0)
+        if (hp <= 0)
         {
             print(name + "Muere por " + atacante.name);
-            vidasMax = vidas - 1;
+            Personaje.vidas = Personaje.vidas - Personaje.vidas;
             misSonidos.reproducir("Morir");
             muerto = true;
 
         }
     }
+
+    
+
     private void morirPersonaje(GameObject morido)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
     public void bajarVida()
     {
         if (hp <= 0)
         {
-            Personaje.vidas = Personaje.vidas - 1;
+            Personaje.vidas = Personaje.vidas - Personaje.vidas;
         }
     }
 }
