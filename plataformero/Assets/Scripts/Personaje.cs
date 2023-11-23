@@ -23,7 +23,7 @@ public class Personaje : MonoBehaviour
         miAnimador = GetComponent<Animator>();
         misSonidos = GetComponent<ReproductorSonidos>();
         miPersonaje = GetComponent <Personaje>();
-        Invoke("morirPersonaje", 1f);
+        
     }
 
     public void hacerDanio(int puntos, GameObject atacante)
@@ -95,6 +95,8 @@ public class Personaje : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+
 
     public void bajarVida()
     {

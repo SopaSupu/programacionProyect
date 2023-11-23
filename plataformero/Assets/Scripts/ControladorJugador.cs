@@ -89,8 +89,9 @@ public class ControladorJugador : MonoBehaviour
          
             if (miPersonaje.hp <= 0)
             {
-                Invoke("morirPersonaje", 0.5f);
+                Invoke("morirPersonaje", 1f);
                 print("aaaaaaaaaa");
+                
             }
         }
 
