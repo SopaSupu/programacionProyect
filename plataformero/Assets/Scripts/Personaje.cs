@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Personaje : MonoBehaviour
 {
@@ -12,18 +13,21 @@ public class Personaje : MonoBehaviour
     public static int vidas = 3;
     public bool aturdido = false;
     public bool muerto = false;
+    public int MonedaScore = 0;
+    public Text Moneda;
     Animator miAnimador;
     public GameObject efectoSangrePrefab;
     private ReproductorSonidos misSonidos;
     private Personaje miPersonaje;
-    
+
 
     void Start()
     {
         miAnimador = GetComponent<Animator>();
         misSonidos = GetComponent<ReproductorSonidos>();
-        miPersonaje = GetComponent <Personaje>();
-        
+        miPersonaje = GetComponent<Personaje>();
+        MonedaScore = 0;
+
     }
 
     public void hacerDanio(int puntos, GameObject atacante)
@@ -43,40 +47,36 @@ public class Personaje : MonoBehaviour
         //programo que se ejecute el método desaturdir dentro de 1 segundo
         Invoke("desaturdir", 1);
 
-        if (hp < 0 && Personaje.vidas > 0)
-        {
-            
-            muerto = true;
-            miPersonaje.bajarVida();
-        }
 
-        if (Personaje.vidas <= 0 && hp <=0)
+
+        if (hp <= 0)
         {
             muerto = true;
-            hp = 0;
+            //hp = 0;
             miAnimador.SetTrigger("Morir");
-
+            Personaje.vidas--;
+            Invoke("morirPersonaje", 4);
 
         }
         if (miPersonaje.tag == "Player" && hp <= 0 && Personaje.vidas > 0)
         {
             Personaje elPerso = miPersonaje.GetComponent<Personaje>();
-            elPerso.morirPersonaje(this.gameObject);
+            //elPerso.morirPersonaje(this.gameObject);
         }
 
 
     }
 
     private void desaturdir()
-        
+
     {
         aturdido = false;
-        
+
     }
 
-    
 
-    
+
+
     public void perderVida(int puntosVida, GameObject atacante)
     {
         if (hp <= 0)
@@ -85,24 +85,39 @@ public class Personaje : MonoBehaviour
             Personaje.vidas = Personaje.vidas - Personaje.vidas;
             misSonidos.reproducir("Morir");
             muerto = true;
-
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Invoke("morirPersonaje", 4);
         }
     }
 
-    
 
-    private void morirPersonaje(GameObject morido)
+
+    private void morirPersonaje(GameObject morir)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+
+
     }
 
+    public void bajarVida(int puntosVida, GameObject atacante)
 
-
-    public void bajarVida()
     {
         if (hp <= 0)
         {
+            print(name + "Muere por " + atacante.name);
             Personaje.vidas = Personaje.vidas - Personaje.vidas;
+            misSonidos.reproducir("Morir");
+            muerto = true;
+        }
+
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Moneda")
+        {
+            MonedaScore++;
+            Moneda.text = "x " + MonedaScore;
         }
     }
 }
