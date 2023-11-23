@@ -35,7 +35,7 @@ public class Personaje : MonoBehaviour
         print(name + "recibe daño de" + puntos + "por" + atacante.name);
         //resto los puntos al hp actual
         hp = hp - puntos;
-        miAnimador.SetTrigger("Dañar");
+        
 
 
         //creo una instancia en la parte de sangre
@@ -52,16 +52,25 @@ public class Personaje : MonoBehaviour
         if (hp <= 0)
         {
             muerto = true;
-            //hp = 0;
             miAnimador.SetTrigger("Morir");
             Personaje.vidas--;
-            Invoke("morirPersonaje", 4);
+            Invoke("reanudarEscena", 3);
+            
+
 
         }
+        else
+        {
+            miAnimador.SetTrigger("Dañar");
+        }
+
         if (miPersonaje.tag == "Player" && hp <= 0 && Personaje.vidas > 0)
         {
             Personaje elPerso = miPersonaje.GetComponent<Personaje>();
-            //elPerso.morirPersonaje(this.gameObject);
+            
+            muerto = true;
+            misSonidos.reproducir("Morir");
+            miAnimador.SetTrigger("Morir");
         }
 
 
@@ -74,7 +83,12 @@ public class Personaje : MonoBehaviour
 
     }
 
-
+    private void reanudarEscena()
+    {
+        muerto = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        hp = hpMax;
+    }
 
 
     public void perderVida(int puntosVida, GameObject atacante)
@@ -85,33 +99,14 @@ public class Personaje : MonoBehaviour
             Personaje.vidas = Personaje.vidas - Personaje.vidas;
             misSonidos.reproducir("Morir");
             muerto = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Invoke("morirPersonaje", 4);
         }
     }
 
 
 
-    private void morirPersonaje(GameObject morir)
-    {
+  
 
-
-
-    }
-
-    public void bajarVida(int puntosVida, GameObject atacante)
-
-    {
-        if (hp <= 0)
-        {
-            print(name + "Muere por " + atacante.name);
-            Personaje.vidas = Personaje.vidas - Personaje.vidas;
-            misSonidos.reproducir("Morir");
-            muerto = true;
-        }
-
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Moneda")

@@ -7,6 +7,7 @@ TagManager:
   - FxTemporaire
   - Enemigo
   - Moneda
+  - "Bot\xF3n"
   layers:
   - Default
   - TransparentFX
