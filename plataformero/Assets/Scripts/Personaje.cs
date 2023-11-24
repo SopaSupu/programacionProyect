@@ -7,6 +7,16 @@ using UnityEngine.UI;
 
 public class Personaje : MonoBehaviour
 {
+    public enum TiposDanio
+    {
+        Fisico,
+        Magico,
+        Fuego,
+        Aire,
+        Cortante,
+        Contundente,
+    }
+
     public int hp = 60;
     public int hpMax = 100;
     public int score = 0;
@@ -17,6 +27,7 @@ public class Personaje : MonoBehaviour
     public Text Moneda;
     Animator miAnimador;
     public GameObject efectoSangrePrefab;
+    public GameObject efectoDanioMagico;
     private ReproductorSonidos misSonidos;
     private Personaje miPersonaje;
 
@@ -30,9 +41,10 @@ public class Personaje : MonoBehaviour
 
     }
 
-    public void hacerDanio(int puntos, GameObject atacante)
+    public void hacerDanio(int puntos, GameObject atacante, TiposDanio tipo = TiposDanio.Fisico)
+        //si no se manda el tipo, por defecto toma el fisico
     {
-        print(name + "recibe daño de" + puntos + "por" + atacante.name);
+        print(name + "recibe daño de" + puntos + "por" + atacante.name + "de tipo" + tipo);
         //resto los puntos al hp actual
         hp = hp - puntos;
         
@@ -43,9 +55,21 @@ public class Personaje : MonoBehaviour
             efectoSangrePrefab, transform);
         misSonidos.reproducir("Dañar");
 
-        aturdido = true;
-        //programo que se ejecute el método desaturdir dentro de 1 segundo
-        Invoke("desaturdir", 1);
+        if (tipo == TiposDanio.Fisico)
+        {
+            miAnimador.SetTrigger("Dañar");
+
+            aturdido = true;
+            //programo que se ejecute el método desaturdir dentro de 1 segundo
+            Invoke("desaturdir", 1);
+        }
+        else if (tipo == TiposDanio.Magico)
+        {
+            //activar una particula correspondiente
+            Instantiate(efectoDanioMagico, transform);
+        }
+
+        
 
 
 

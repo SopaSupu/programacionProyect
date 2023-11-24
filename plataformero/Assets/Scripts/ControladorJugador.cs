@@ -14,6 +14,7 @@ public class ControladorJugador : MonoBehaviour
     private ReproductorSonidos misSonidos;
     public int danioArma = 3;
     private Personaje miPersonaje;
+    
 
     void Start()
     {
@@ -47,7 +48,7 @@ public class ControladorJugador : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             //el 3 es hardcode TT(?
-            //con velocidadCaminar ya está parametrizao
+            //con velocidadCaminar ya está parametrizado
             miCuerpo.velocity = new Vector3(velocidadCaminar, velActualVert, 0);
             miAnimador.SetBool("Caminando", true);
         }

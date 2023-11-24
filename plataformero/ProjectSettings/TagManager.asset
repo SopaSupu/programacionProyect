@@ -8,6 +8,7 @@ TagManager:
   - Enemigo
   - Moneda
   - "Bot\xF3n"
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
