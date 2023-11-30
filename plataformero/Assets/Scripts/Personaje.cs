@@ -30,6 +30,7 @@ public class Personaje : MonoBehaviour
     public GameObject efectoDanioMagico;
     private ReproductorSonidos misSonidos;
     private Personaje miPersonaje;
+    
 
 
     void Start()
@@ -39,6 +40,20 @@ public class Personaje : MonoBehaviour
         miPersonaje = GetComponent<Personaje>();
         MonedaScore = 0;
 
+
+    }
+    private void OnTriggerEnter2D( Collider2D collision)
+    {
+     if(collision.gameObject.tag== "Meta")
+        {
+            miAnimador.SetTrigger("festejando");
+            muerto = true;
+        }
+        if (collision.gameObject.tag == "Moneda")
+        {
+            MonedaScore++;
+            Moneda.text = "x " + MonedaScore;
+        }
     }
 
     public void hacerDanio(int puntos, GameObject atacante, TiposDanio tipo = TiposDanio.Fisico)
@@ -131,12 +146,5 @@ public class Personaje : MonoBehaviour
 
   
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Moneda")
-        {
-            MonedaScore++;
-            Moneda.text = "x " + MonedaScore;
-        }
-    }
+   
 }
