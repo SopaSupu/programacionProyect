@@ -28,6 +28,7 @@ public class Meta : MonoBehaviour
             GameObject reaparece = Instantiate(explosión);
             animadorHeroe.SetTrigger("festejando");
             Invoke("siguienteEscena", 6f);
+            miAnimador.SetBool("Celebrar", false);
         }
     }
 

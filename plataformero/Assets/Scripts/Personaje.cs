@@ -17,7 +17,7 @@ public class Personaje : MonoBehaviour
         Contundente,
     }
 
-    public int hp = 60;
+    public int hp = 5;
     public int hpMax = 100;
     public int score = 0;
     public static int vidas = 3;

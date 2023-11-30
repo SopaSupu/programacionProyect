@@ -10,6 +10,7 @@ public class EnemigoPequenio : MonoBehaviour
     private Rigidbody2D miCuerpo;
     private Animator miAnimador;
     public GameObject efectoAtacar;
+    private Personaje miPersonaje;
 
 
     void Start()
@@ -17,6 +18,7 @@ public class EnemigoPequenio : MonoBehaviour
         heroe = GameObject.FindWithTag("Player");
         miCuerpo = GetComponent<Rigidbody2D>();
         miAnimador = GetComponent<Animator>();
+        miPersonaje = GetComponent<Personaje>();
     }
 
 
@@ -27,7 +29,7 @@ public class EnemigoPequenio : MonoBehaviour
         float velActualVert = miCuerpo.velocity.y;
 
         float distancia = (posYo - posHeroe).magnitude;
-        if (distancia < distanciaAgro)
+        if (distancia < distanciaAgro && !miPersonaje.muerto)
         {//el heroe està dentro de la zona de agro
             if (posHeroe.x > posYo.x)
             {//el heroe està a la derecha del villano

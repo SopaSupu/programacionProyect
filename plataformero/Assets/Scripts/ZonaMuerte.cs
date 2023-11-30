@@ -8,11 +8,14 @@ public class ZonaMuerte : MonoBehaviour
     public int puntosVida = 1;
     public GameObject efectoAguaPrefab;
     private ReproductorSonidos misSonidos;
+    public int Danio = 60;
+    private GameObject heroe;
 
 
     private void Start()
     {
         misSonidos = GetComponent<ReproductorSonidos>();
+        heroe = GameObject.FindWithTag("Player");
     }
    
     private void OnTriggerEnter2D(Collider2D trigger)
@@ -26,10 +29,15 @@ public class ZonaMuerte : MonoBehaviour
             Personaje elPerso = otro.GetComponent<Personaje>();
             //invoco el metodo hacer daño
             elPerso.perderVida(puntosVida, this.gameObject);
-            GameObject Agua = Instantiate(
-           efectoAguaPrefab, this.transform);
+            GameObject Agua = Instantiate(efectoAguaPrefab.gameObject, elPerso.transform);
            
+
+            
+            //aplico el daño al otro invocando el método hacer daño
+            elPerso.hacerDanio(Danio, this.gameObject);
+
             misSonidos.reproducir("Splash");
+            
         }
     }
     
