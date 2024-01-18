@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Threading;
 using UnityEngine;
 
 public class CaminadoSimple : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    private Rigidbody miCuerpo;
+    public float velocidad;
+    Vector3 movimiento;
+
     void Start()
     {
-        
+        miCuerpo = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        //leo el valor de input del eje vertical,
-        //si el valor es mayor a cero, aplicar una velocidad al rb de (0,0, velocidad) y activo el paràmetro caminando del animator
-        // si el valor no es mayor a cero, entonces anulo la velocidad y desactivo caminando
+        movimiento = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
+
+    private void FixedUpdate()
+    {
+        miCuerpo.MovePosition(transform.position + (movimiento * velocidad * Time.fixedDeltaTime));
+    }
+
 }
+
+
+    
+
