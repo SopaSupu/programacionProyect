@@ -48,8 +48,8 @@ BlendTree:
     m_CycleOffset: 0.5
     m_DirectBlendParameter: DESPL_LATERAL
     m_Mirror: 1
-  m_BlendParameter: DESPL_LATERAL
-  m_BlendParameterY: DESPL_FRONTAL
+  m_BlendParameter: movHoriz
+  m_BlendParameterY: movVert
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
@@ -86,13 +86,13 @@ AnimatorController:
   m_Name: Prota_DesplCruz
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: DESPL_LATERAL
+  - m_Name: movHoriz
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: DESPL_FRONTAL
+  - m_Name: movVert
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
