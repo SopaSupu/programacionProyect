@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class CaminadoSimple : MonoBehaviour
 {
-    public float Velocidad = 3;
+    public float Velocidad = 5;
     private Rigidbody miCuerpo;
     private Animator miAnimador;
 
