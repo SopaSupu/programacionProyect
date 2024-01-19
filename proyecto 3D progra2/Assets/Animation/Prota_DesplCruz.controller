@@ -48,8 +48,8 @@ BlendTree:
     m_CycleOffset: 0.5
     m_DirectBlendParameter: DESPL_LATERAL
     m_Mirror: 1
-  m_BlendParameter: movHoriz
-  m_BlendParameterY: movVert
+  m_BlendParameter: movVert
+  m_BlendParameterY: movHoriz
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
