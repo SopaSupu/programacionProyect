@@ -36,18 +36,20 @@ public class CaminadoDireccional : MonoBehaviour
 
         Vector3 dir = new Vector3(movHoriz, 0, movVert);
 
-        transform.forward = dir;
-        miCuerpo.velocity = (transform.forward * Velocidad) * (dir.magnitude);
+       
+       
 
 
         if(dir.magnitude > 0)
         {
             miAnimador.SetBool("CAMINANDO", true);
+            transform.forward = dir;
         }
         else
         {
             miAnimador.SetBool("CAMINANDO", false);
         }
 
+        miCuerpo.velocity = (transform.forward * Velocidad) * (dir.magnitude);
     }
 }
