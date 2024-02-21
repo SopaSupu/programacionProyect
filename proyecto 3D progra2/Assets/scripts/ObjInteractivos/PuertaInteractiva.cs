@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PuertaInteractiva : ObjetoInteractivoGenerico
 {
+
     public override void ActivarAccion()
     {
-       
+        //poner cómo abrir la puerta
+        //rotar puerta 90 grados
+        transform.rotation = Quaternion.Euler(0, 90, 0);
     }
     // Start is called before the first frame update
     void Start()
