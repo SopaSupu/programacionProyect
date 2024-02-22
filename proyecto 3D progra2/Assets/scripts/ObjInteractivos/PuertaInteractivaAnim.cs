@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuertaInteractivaAnim : ObjetoInteractivo
+public class PuertaInteractivaAnim : ObjetoInteractivoGenerico
 {
     private Animator miAnimador;
     private bool estaAbierta = false;

@@ -16,7 +16,7 @@ public class ControladorUI : MonoBehaviour
         Instancia = this;
     }
     public void MostrarInteraccionConObj(
-        ObjetoInteractivo elObj)
+        ObjetoInteractivoGenerico elObj)
     {
         if (elObj != null)
         {
