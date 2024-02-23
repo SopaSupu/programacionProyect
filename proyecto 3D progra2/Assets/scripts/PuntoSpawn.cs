@@ -10,14 +10,5 @@ public class PuntoSpawn : MonoBehaviour
             this.transform.position,
             "T_11_home_");
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
