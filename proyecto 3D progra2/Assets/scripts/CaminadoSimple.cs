@@ -5,25 +5,47 @@ using System.Collections.Generic;
 
 public class CaminadoSimple : MonoBehaviour
 {
-    public float Velocidad = 5;
+
+
+
+
+
+
+
     private Rigidbody miCuerpo;
     private Animator miAnimador;
+    public int veloPerso = 5;
+    public int rotSuav = 1;
 
+    // Start is called before the first frame update
     void Start()
     {
         miCuerpo = GetComponent<Rigidbody>();
         miAnimador = GetComponent<Animator>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-        float movHoriz = Input.GetAxis("Horizontal");
-        float movVert = Input.GetAxis("Vertical");
+        float movHoriz = Input.GetAxisRaw("Horizontal");
+        float movVert = Input.GetAxisRaw("Vertical");
 
-        miAnimador.SetFloat("movHoriz", movHoriz);
-        miAnimador.SetFloat("movVert", movVert);
+        Vector3 direccion = new Vector3(movHoriz, 0, movVert);
 
-        miCuerpo.velocity = (transform.forward * movVert + transform.right * movHoriz) * Velocidad;
+
+
+        if (direccion.magnitude > 0)
+        {
+            Vector3 nuevDir = Vector3.Lerp(transform.forward, direccion, Time.deltaTime * rotSuav);
+            transform.forward = nuevDir;
+            miAnimador.SetBool("CAMINANDO", true);
+        }
+        else
+        {
+            miAnimador.SetBool("CAMINANDO", false);
+        }
+
+        miCuerpo.velocity = ((transform.forward * veloPerso) * direccion.magnitude);
     }
 }
 
