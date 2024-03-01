@@ -12,10 +12,10 @@ public class BotellaInteractiva : ObjetoInteractivoGenerico
     }
     public override void ActivarAccion()
     {
-        if (abierto == false)
+        if (abierto == true)
         {
             miAnimador.SetTrigger("CAER");
-            abierto = true;
+            abierto = false;
             textoAccion = "Tirar botella vacía";
 
         }
@@ -23,8 +23,8 @@ public class BotellaInteractiva : ObjetoInteractivoGenerico
         else
         {
             miAnimador.SetTrigger("LEVANTAR");
-            abierto = false;
-            textoAccion = "Levantar botella vacía";
+           abierto = true;
+            textoAccion = "Levantar botella";
         }
     }
 }

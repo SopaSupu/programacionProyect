@@ -23,6 +23,6 @@ public class CaminadoDireccional : MonoBehaviour
         miAnimador.SetFloat("movHoriz", movHoriz);
         miAnimador.SetFloat("movVert", movVert);
 
-        miCuerpo.velocity = (transform.forward * movVert + transform.right * movHoriz) * Velocidad;
+        miCuerpo.velocity = (transform.forward * movVert * Velocidad)  + (transform.right * movHoriz * Velocidad);
     }
 }
