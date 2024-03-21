@@ -7,7 +7,6 @@ public abstract class ObjetoInteractivoGenerico : MonoBehaviour
 
     public string textoAccion;
     private bool playerEnContacto = false;
-    private ReproductorSonidos misSonidos;
 
     public abstract void ActivarAccion();
 
@@ -35,15 +34,13 @@ public abstract class ObjetoInteractivoGenerico : MonoBehaviour
         }
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.X) && playerEnContacto)
         {
             ActivarAccion();
-            misSonidos.reproducir("Miau");
         }
     }
+
 }
 
