@@ -14,7 +14,7 @@ public class CompuInteractiva : ObjetoInteractivoGenerico
         {
             unityVentanas.gameObject.SetActive(true);
             encendido = true;
-            textoAccion = "hacer un juego en unity";
+            textoAccion = "Encender computadora";
         }
 
         else
