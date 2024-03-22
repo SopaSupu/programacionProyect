@@ -21,9 +21,9 @@ public class ColocadorNPCs : MonoBehaviour
             print("Se encontraron" + puntosSpaw.Length + "puntos de Spawn");
         }
         Gizmos.color = Color.yellow;
-        foreach (GameObject punto in puntosSpaw)
+        //foreach (GameObject punto in puntosSpaw)
         {
-            Gizmos.DrawIcon(punto.transform.position, "T_8_Silhouette_");
+            //Gizmos.DrawIcon(punto.transform.position, "T_8_Silhouette_");
         }
     }
     public void NPCGenerado(GameObject npc, GameObject generador)
@@ -32,6 +32,11 @@ public class ColocadorNPCs : MonoBehaviour
         GameObject puntoAleatorio = puntosSpaw[Random.Range(0, puntosSpaw.Length)];
 
         npc.transform.position = puntoAleatorio.transform.position;
+        AsignadorDestinoNavegacion asignador = npc.GetComponent<AsignadorDestinoNavegacion>();
+        if (asignador != null)
+        {
+            asignador.destino = this.transform;
+        }
     }
 
     // Update is called once per frame

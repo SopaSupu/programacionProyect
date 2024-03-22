@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class CompuInteractiva : ObjetoInteractivoGenerico
 {
-    private bool encendido = false;
-    public Canvas unityVentanas;
+    private bool prendido = false;
+    public GameObject Pum;
+    void Start()
+    {
+       
 
+    }
     public override void ActivarAccion()
     {
-
-        if (encendido == false)
+        if (prendido == true)
         {
-            unityVentanas.gameObject.SetActive(true);
-            encendido = true;
-            textoAccion = "Encender computadora";
+            
+            
+            prendido = false;
+            textoAccion = "Encender Compu";
+            GameObject explosion = Instantiate(Pum, transform);
         }
 
         else
         {
-            unityVentanas.gameObject.SetActive(false);
-            encendido = false;
-
-            textoAccion = "apagar computadora";
+            
+            prendido = true;
+            textoAccion = "Usar extintor";
         }
     }
 
