@@ -9,6 +9,7 @@ public class LamparaInteractiva : ObjetoInteractivoGenerico
 
     public override void ActivarAccion()
     {
+        
 
         if (encendido == false)
         {

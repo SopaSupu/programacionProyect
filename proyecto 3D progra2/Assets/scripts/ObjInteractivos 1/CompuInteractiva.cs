@@ -20,6 +20,7 @@ public class CompuInteractiva : ObjetoInteractivoGenerico
             prendido = false;
             textoAccion = "Encender Compu";
             GameObject explosion = Instantiate(Pum, transform);
+            Pum.transform.position = new Vector3(0, 0, 0);
         }
 
         else
