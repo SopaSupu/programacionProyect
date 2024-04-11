@@ -4,32 +4,31 @@ using UnityEngine;
 
 public class CompuInteractiva : ObjetoInteractivoGenerico
 {
+   
+
+
     private bool prendido = false;
-    public GameObject Pum;
+    private Animator miAnimador;
     void Start()
     {
-       
-
+        miAnimador = GetComponent<Animator>();
     }
     public override void ActivarAccion()
     {
         if (prendido == true)
         {
-            
-            
+            miAnimador.SetTrigger("EXPLOTAR");
             prendido = false;
-            textoAccion = "Encender Compu";
-            GameObject explosion = Instantiate(Pum, transform);
-            Pum.transform.position = new Vector3(0, 0, 0);
+            textoAccion = "Encender compu";
+
         }
 
         else
         {
-            
+            miAnimador.SetTrigger("EXPLOTAR");
             prendido = true;
             textoAccion = "Usar extintor";
         }
     }
-
 
 }

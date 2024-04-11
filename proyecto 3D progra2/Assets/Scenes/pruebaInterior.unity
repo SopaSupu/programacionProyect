@@ -333,6 +333,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2563423811855972308, guid: e430022eaa2c59340af3119c722ac3b2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9751861
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563423811855972308, guid: e430022eaa2c59340af3119c722ac3b2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9751862
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563423811855972308, guid: e430022eaa2c59340af3119c722ac3b2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.97518635
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563423811855972308, guid: e430022eaa2c59340af3119c722ac3b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563423811855972308, guid: e430022eaa2c59340af3119c722ac3b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563423811856135226, guid: e430022eaa2c59340af3119c722ac3b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2835139170107204416, guid: e430022eaa2c59340af3119c722ac3b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.677
@@ -5106,7 +5130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoAccion: Encender compu
-  Pum: {fileID: 167558, guid: a11dc34cafe3dfd4facb59cfb4e72de8, type: 3}
 --- !u!65 &1860696543
 BoxCollider:
   m_ObjectHideFlags: 0
