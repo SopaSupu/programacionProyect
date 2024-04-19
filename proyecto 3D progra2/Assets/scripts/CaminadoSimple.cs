@@ -15,7 +15,8 @@ public class CaminadoSimple : MonoBehaviour
     private Rigidbody miCuerpo;
     private Animator miAnimador;
     public int veloPerso = 5;
-    public int rotSuav = 1;
+    public int rotSuav = 3;
+    public float gravedad;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class CaminadoSimple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        miCuerpo.AddForce(gravedad * Physics.gravity);
         float movHoriz = Input.GetAxisRaw("Horizontal");
         float movVert = Input.GetAxisRaw("Vertical");
 

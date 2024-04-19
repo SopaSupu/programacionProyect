@@ -5,9 +5,10 @@ using UnityEngine;
 public class CaminadoDireccional : MonoBehaviour
 {
 
-    public float Velocidad = 5;
+    public float Velocidad = 18;
     private Rigidbody miCuerpo;
     private Animator miAnimador;
+    public float gravedad;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class CaminadoDireccional : MonoBehaviour
 
     void Update()
     {
+        miCuerpo.AddForce(gravedad * Physics.gravity);
         float movHoriz = Input.GetAxis("Horizontal");
         float movVert = Input.GetAxis("Vertical");
 
