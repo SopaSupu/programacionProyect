@@ -5,13 +5,6 @@ using System.Collections.Generic;
 
 public class CaminadoSimple : MonoBehaviour
 {
-
-
-
-
-
-
-
     private Rigidbody miCuerpo;
     private Animator miAnimador;
     public int veloPerso = 5;
